@@ -1,0 +1,24 @@
+Crossing Watch — Art credits
+
+Character models and skeletal animations — Quaternius, CC0 1.0
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Animated Knight Pack — KnightCharacter (ranger and Mira)
+https://quaternius.com/packs/knightcharacter.html
+
+Ultimate Animated Animal Pack — Wolf (hound), Stag (Shoal Warden),
+Bull (Ash Sentinel)
+https://quaternius.com/packs/ultimateanimatedanimals.html
+
+Ultimate Nature Pack — PineTree_1, PineTree_4, BirchTree_2, BirchTree_Dead_2,
+Rock_5, Rock_Moss_3, Flowers, Bush_2, Grass_2, TreeStump
+https://quaternius.com/packs/ultimatenature.html
+
+Ultimate Fantasy RTS — Houses_FirstAge_2_Level2 (ranger hut)
+https://quaternius.com/packs/ultimatefantasyrts.html
+
+GLB files from the Quaternius Showcase collection:
+https://github.com/trebeljahr/quaternius-showcase/tree/0128ca510d653bb04d6d1e4885bd8890b5050b4f/public/glb
+
+Camera, terrain, foliage, shadows and combat rendering include code by Levy Street (MIT).
+License notice — LICENSE-LEVY-STREET.txt
