@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#202b30">
+  <meta name="description" content="A third-person browser RPG. Take the watch, light the beacons, and open the crossing.">
+  <title>Crossing Watch</title>
+  <link rel="icon" href="./dozor.png" type="image/png">
+</head>
+<body>
+  <div id="game">
+    <canvas id="view" tabindex="-1" aria-label="3D game world"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="nav">
+      <button id="home" class="wordmark" aria-label="Main menu"><span class="crest" aria-hidden="true">◆</span> Crossing Watch</button>
+      <div class="nav-actions">
+        <button id="sound" class="quiet" aria-pressed="true">Sound</button>
+        <button id="pause" class="quiet" hidden>Pause</button>
+      </div>
+    </header>
+    <main id="title-screen" class="title-screen">
+      <div class="intro">
+        <p class="region"><i></i> Mistwater Shoal</p>
+        <h1>Crossing<br>Watch</h1>
+        <p class="pitch">The road fell silent at dusk. Find the ranger<br>and learn why no one crosses the bridge.</p>
+        <button id="play" class="primary">Take the trail</button>
+        <button id="title-help" class="text-button">Controls</button> <a class="text-button" href="./onepage.html">About the game</a>
+      </div>
+    </main>
+    <div id="hud" hidden>
+      <section class="profile panel" aria-label="Character">
+        <div class="profile-title"><div class="badge"><span id="level">1</span></div><div><strong>Ranger</strong><small id="xp-label">0 / 70 XP</small></div></div>
+        <div class="resource health"><label>Health <b id="hp">100</b></label><div><i id="hp-bar"></i></div></div>
+        <div class="resource spirit" title="Staff hits restore Spirit. It recovers faster outside combat."><label>Spirit <b id="spirit">100</b></label><div><i id="spirit-bar"></i></div></div>
+      </section>
+      <aside class="field-notes">
+        <div class="map-shell" role="img" aria-label="Minimap"><canvas id="minimap" width="208" height="208" aria-hidden="true"></canvas><span aria-hidden="true">N</span></div>
+        <section class="quest" aria-label="Current quest">
+          <div class="quest-type"><span id="zone">Crossing Valley</span><b id="quest-count">Chapter 1 / 11</b></div>
+          <h2 id="quest-title">Speak to Mira</h2>
+          <p id="quest-hint">The ranger waits by the road.</p>
+          <div id="defense-progress" class="defense-progress" hidden aria-hidden="true"><i id="defense-fill"></i></div>
+          <div class="bearing"><span id="bearing-arrow" aria-hidden="true">▲</span><span id="bearing-text"></span></div>
+        </section>
+      </aside>
+      <div id="tags" aria-hidden="true"></div>
+      <div id="mira-tag" class="tag ally" hidden>Mira · Ranger</div>
+      <div id="message" class="message" role="status" hidden></div>
+      <div id="prompt" class="prompt" hidden><kbd>E</kbd><span></span></div>
+      <section id="boss-hud" class="boss-hud panel" hidden aria-label="Target">
+        <div><strong id="target-name"></strong><b id="boss-hp"></b></div>
+        <div class="boss-meter"><i id="boss-bar"></i></div>
+        <small id="target-status"></small>
+      </section>
+      <div id="cast-warning" class="cast-warning" hidden>
+        <div><strong id="cast-name"></strong><span id="cast-time"></span></div>
+        <div class="cast-meter"><i id="cast-progress"></i></div>
+        <p id="cast-response"></p>
+      </div>
+      <div class="action-deck">
+        <div class="action-bar" role="group" aria-label="Abilities">
+          <button data-skill="strike" class="skill" aria-label="Auto-attack" aria-pressed="false"><kbd aria-hidden="true">1</kbd><span class="skill-name">Attack</span><span class="timer" aria-hidden="true" hidden></span></button>
+          <button data-skill="seal" class="skill" aria-label="Seal" hidden><kbd aria-hidden="true">2</kbd><small class="cost" aria-hidden="true"></small><span class="skill-name">Seal</span><span class="timer" aria-hidden="true" hidden></span></button>
+          <button data-skill="heal" class="skill" aria-label="Heal"><kbd aria-hidden="true">3</kbd><small class="cost" aria-hidden="true"></small><span class="skill-name">Heal</span><span class="timer" aria-hidden="true" hidden></span></button>
+          <button data-skill="roll" class="skill" aria-label="Roll"><kbd aria-hidden="true">4</kbd><span class="skill-name">Roll</span><span class="timer" aria-hidden="true" hidden></span></button>
+        </div>
+        <p class="input-hint">WASD move <span>·</span> RMB orbit <span>·</span> E interact <span>·</span> Tab target</p>
+      </div>
+      <div id="joystick" class="joystick" aria-label="Movement"><i></i></div>
+      <button id="touch-use" class="quiet touch-use">Interact</button>
+      <button id="help" class="quiet help">Controls</button>
+    </div>
+    <dialog id="dialog" aria-labelledby="dialog-title"><form method="dialog"><button class="quiet close" aria-label="Close">×</button></form><div id="dialog-content"></div></dialog>
+    <div id="announce" class="sr-only" role="status"></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
